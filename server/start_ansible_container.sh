@@ -4,4 +4,4 @@ set -euo pipefail
 
 tag=$1
 
-docker run --rm -itd --name debian-ansible -p 2200:22 debian-ansible:"$tag"
+docker run --rm -itd --name bullseye-ansible -p 2200:22 bullseye-ansible:"$tag"

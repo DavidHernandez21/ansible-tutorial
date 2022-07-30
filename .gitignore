@@ -130,3 +130,6 @@ dmypy.json
 
 # Dockerfile secret user password
 user_password.txt
+
+# ssh public key
+*.pub
