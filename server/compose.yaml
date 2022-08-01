@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  bullseye-ansible:
+    image: bullseye-ansible:0.1.3
+    container_name: "bullseye-ansible"
+    networks:
+        - bullseye-ansible
+    ports:
+      - "2200:22"
+      - "8080:80"
+
+networks:
+  bullseye-ansible:
+    driver: bridge

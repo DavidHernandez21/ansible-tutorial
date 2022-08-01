@@ -1,0 +1,5 @@
+# install vim-nox on all servers
+ansible all -m apt -a "name=vim-nox state=latest" --become --ask-become
+
+# gather facts from servers
+ansible all -m ather_facts

@@ -1,0 +1,20 @@
+ - hosts: all
+   become: true
+   tasks:
+ 
+   - name: update repository index
+     apt:
+       update_cache: yes
+  
+   # in my case (my server -> an image from python:3.10.5-bullseye)
+   # this command installs but do not starts apache2
+   - name: install apache2 package
+     apt:
+       name: apache2
+       # state: absent  --> to remove the package
+       state: latest
+ 
+   - name: add php support for apache
+     apt:
+       name: libapache2-mod-php
+       state: latest
