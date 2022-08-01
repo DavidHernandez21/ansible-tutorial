@@ -4,11 +4,20 @@ services:
     image: bullseye-ansible:0.1.3
     container_name: "bullseye-ansible"
     networks:
-        - bullseye-ansible
+        - ansible
     ports:
       - "2200:22"
       - "8080:80"
+  centos-ansible:
+    image: centos-ansible:0.1.2
+    container_name: "centos-ansible"
+    networks:
+        - ansible
+    ports:
+      - "2201:22"
+      - "8081:80"
+      - "8082:8080"
 
 networks:
-  bullseye-ansible:
+  ansible:
     driver: bridge

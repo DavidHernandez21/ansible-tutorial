@@ -9,3 +9,5 @@ you will need a public ssh key and a txt file in the Dockerbuild context e.g. in
 
 
 the txt file should be something like `<username>:<password>`
+
+CAUTION this build is quite slow!!!

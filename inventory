@@ -1,2 +1,4 @@
 [mydockercontainer]
-myserver ansible_port=2200 ansible_host=127.0.0.1 ansible_user=test
+bullseye ansible_port=2200 ansible_host=127.0.0.1 ansible_user=test
+centos ansible_port=2201 ansible_host=127.0.0.1 ansible_user=test ansible_python_interpreter=/opt/rh/rh-python38/root/usr/bin/python3.8
+
