@@ -1,0 +1,22 @@
+--- 
+- name: set up nginx
+  hosts: all
+  become: true
+  tasks: 
+    # Note --> after running this playbook as apache2 was already installed
+    # hitting localhost:<the publiched port> I saw the apache2 homepage
+    # nginx behaved as reverse-proxy??
+    - name: ensure nginx is at the latest version
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+      when: ansible_facts['distribution'] == "Debian"
+
+
+    - name: start nginx
+      service: 
+        name: nginx
+        state: started
+        enabled: yes  # if you want to also enable nginx
+      when: ansible_facts['distribution'] == "Debian"

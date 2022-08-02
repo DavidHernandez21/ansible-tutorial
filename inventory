@@ -1,4 +1,8 @@
-[mydockercontainer]
-bullseye ansible_port=2200 ansible_host=127.0.0.1 ansible_user=test
-centos ansible_port=2201 ansible_host=127.0.0.1 ansible_user=test ansible_python_interpreter=/opt/rh/rh-python38/root/usr/bin/python3.8
+[mydockercontainers]
+bullseye ansible_port=2200 apache_package=apache2 php_package=libapache2-mod-php
+centos ansible_port=2201 ansible_python_interpreter=/opt/rh/rh-python38/root/usr/bin/python3.8 apache_package=httpd php_package=php
+
+[mydockercontainers:vars]
+ansible_host=127.0.0.1
+ansible_user=test
 
