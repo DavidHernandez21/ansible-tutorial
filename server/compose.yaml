@@ -1,13 +1,29 @@
 version: "3.9"
 services:
-  bullseye-ansible:
+  bullseye-ansible-1:
     image: bullseye-ansible:0.1.3
-    container_name: "bullseye-ansible"
+    container_name: "bullseye-ansible-1"
     networks:
         - ansible
     ports:
       - "2200:22"
       - "8080:80"
+  bullseye-ansible-2:
+    image: bullseye-ansible:0.1.3
+    container_name: "bullseye-ansible-2"
+    networks:
+        - ansible
+    ports:
+      - "2202:22"
+      - "8083:80"
+  bullseye-ansible-3:
+    image: bullseye-ansible:0.1.3
+    container_name: "bullseye-ansible-3"
+    networks:
+        - ansible
+    ports:
+      - "2203:22"
+      - "8084:80"
   centos-ansible:
     image: centos-ansible:0.1.3
     container_name: "centos-ansible"
