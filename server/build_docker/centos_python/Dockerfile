@@ -9,7 +9,11 @@ RUN yum update -y && \
     yum install  openssh-server sudo -y && \
     /usr/bin/ssh-keygen -A
 
-RUN useradd -rm -d /home/${TEST_USER} -s /bin/bash -g ${TEST_GROUP} -G root -u 1000 ${TEST_USER}
+RUN useradd -rm -d /home/${TEST_USER} -s /bin/bash -g ${TEST_GROUP} -G root -u 1000 ${TEST_USER} && \
+    # add user to sudoers file
+    # test ALL=(ALL) ALL
+    # user on all hosts=(as any target user) can run any command
+    echo "${TEST_USER} ALL=(ALL) ALL" | tee /etc/sudoers.d/${TEST_USER}
 
 # RUN  --mount=type=secret,id=mysecret cat /run/secrets/mysecret | chpasswd
 RUN echo "${TEST_USER}:${TEST_USER}" | chpasswd
