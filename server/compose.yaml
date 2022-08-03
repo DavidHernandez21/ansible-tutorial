@@ -45,6 +45,7 @@ services:
       - "8082:8080"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - "/tmp/$$(mktemp -d):/run"
 
 networks:
   ansible:

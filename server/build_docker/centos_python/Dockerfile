@@ -29,6 +29,10 @@ RUN chown -R ${TEST_USER}:${TEST_GROUP} /home/${TEST_USER}/.ssh && \
 
 # RUN systemctl start sshd
 
+# COPY start_script.sh /home/${TEST_USER}/start_script.sh
+
+# RUN chmod +x /home/${TEST_USER}/start_script.sh
+
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd","-D"]
