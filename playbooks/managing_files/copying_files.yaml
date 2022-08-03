@@ -44,6 +44,18 @@
       state: latest
     when: ansible_distribution == "Debian"
 
+  - name: copy html file for default apache site
+    tags: 
+      - apache
+      - apache2
+      - httpd
+    ansible.builtin.copy:
+      src: ~/ansible_tutorial/ansible-tutorial/files/default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
 - hosts: db_servers
   become: true
   tasks:
