@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.10.5-bullseye
+FROM python:3.10.6-bullseye
 
 ENV TEST_USER=test \
     TEST_GROUP=root
