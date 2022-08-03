@@ -1,6 +1,6 @@
 [web_servers]
 bullseye-1 ansible_port=2200 
-centos ansible_port=2201 ansible_python_interpreter=/opt/rh/rh-python38/root/usr/bin/python3.8
+centos ansible_port=2201 ansible_python_interpreter=/usr/bin/python3
 
 [db_servers]
 bullseye-2 ansible_port=2202 

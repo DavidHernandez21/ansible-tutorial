@@ -1,12 +1,15 @@
-FROM centos/python-38-centos7
+# FROM centos/python-38-centos7
 # FROM centos/systemd
-USER root
+FROM centos7-systemd
+
+# USER root
 
 ENV TEST_USER=test \
     TEST_GROUP=root 
 
 RUN yum update -y && \
-    yum install  openssh-server sudo -y && \
+    yum install  epel-release -y && \
+    yum install openssh-server sudo python3 -y && \
     /usr/bin/ssh-keygen -A
 
 RUN useradd -rm -d /home/${TEST_USER} -s /bin/bash -g ${TEST_GROUP} -G root -u 1000 ${TEST_USER} && \

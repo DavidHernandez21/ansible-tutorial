@@ -7,12 +7,20 @@
     # hitting localhost:<the publiched port> I saw the apache2 homepage
     # nginx behaved as reverse-proxy??
     - name: ensure nginx is at the latest version
-      apt:
+      package:
         name: nginx
         state: latest
         update_cache: yes
-    - name: start nginx
+    - name: start nginx (Bullseye)
       service: 
         name: nginx
         state: started
         enabled: yes  # if you want to also enable nginx
+      when: ansible_facts['distribution'] == "Debian"
+    # Service is in unknown state!!
+    # - name: start nginx (CentOS)
+    #   ansible.builtin.systemd: 
+    #     name: nginx
+    #     state: started
+    #     enabled: yes  # if you want to also enable nginx
+    #   when: ansible_facts['distribution'] == "CentOS"
