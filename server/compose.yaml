@@ -24,6 +24,16 @@ services:
     ports:
       - "2203:22"
       - "8084:80"
+
+  bullseye-ansible-4:
+    image: bullseye-ansible:0.1.3
+    container_name: "bullseye-ansible-4"
+    networks:
+        - ansible
+    ports:
+      - "2204:22"
+      - "8085:80"
+
   centos-ansible:
     image: centos-ansible:0.2.1
     container_name: "centos-ansible"
