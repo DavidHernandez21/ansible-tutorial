@@ -21,4 +21,4 @@ workstations
 
 [all_servers:vars]
 ansible_host=127.0.0.1
-ansible_user=test
+# ansible_user=test
