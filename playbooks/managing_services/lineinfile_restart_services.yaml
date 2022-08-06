@@ -56,7 +56,7 @@
       group: root
       mode: 0644
   
-  - name: change e-mail address for admin
+  - name: change log level in apache2.conf
     tags: apache,debian,httpd
     ansible.builtin.lineinfile:
       path: /etc/apache2/apache2.conf
