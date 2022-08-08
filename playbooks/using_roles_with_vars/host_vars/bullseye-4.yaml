@@ -1,0 +1,5 @@
+apache_package_name: apache2
+apache_service: apache2
+php_package_name: libapache2-mod-php
+mariadb_package_name: mariadb-server
+terraform_zip_url: https://releases.hashicorp.com/terraform/1.2.6/terraform_1.2.6_linux_amd64.zip

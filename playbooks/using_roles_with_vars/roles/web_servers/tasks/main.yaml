@@ -1,0 +1,32 @@
+- name: install web server packages
+  tags: 
+    - apache
+    - centos
+    - httpd
+    - debian
+  package:
+    name:
+      - "{{ apache_package_name }}"
+      - "{{ php_package_name }}"
+    state: latest
+
+- name: copy html file for default apache site
+  tags: 
+    - apache
+    - apache2
+    - httpd
+  ansible.builtin.copy:
+    src: ~/ansible_tutorial/ansible-tutorial/files/default_site.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: 0644
+
+- name: change log level in apache2.conf
+  tags: apache,debian,httpd
+  ansible.builtin.lineinfile:
+    path: /etc/apache2/apache2.conf
+    regexp: '^LogLevel warn'
+    line: LogLevel notice
+  when: ansible_distribution == "Debian"
+  notify: restart_apache
