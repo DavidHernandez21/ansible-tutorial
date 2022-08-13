@@ -1,3 +1,4 @@
 user_name: simone
 user_group: root
 sudoers_file_dest: /etc/sudoers.d/simone
+fetch_ssh_config_source: /etc/ssh/sshd_config

@@ -1,0 +1,9 @@
+- name: install mariadb server package
+  tags: 
+    - centos
+    - db
+    - mariadb
+    - debian
+  package:
+    name: "{{ mariadb_package_name }}"
+    state: latest

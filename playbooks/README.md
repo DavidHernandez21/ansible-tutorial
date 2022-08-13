@@ -31,3 +31,12 @@ ansible-playbook --ask-become-pass --tags "apache,db" playbooks/use_tags/tags.ya
 - create a "handlers" directory inside the roles/"specific_role" directory where specific_role is the directory that have the task/main.yaml file with the notify key
 - inside the handlers directory create a main.yaml file and write the task for the handler, the name os this task should be the same as the value in the notify key
 
+## using templates
+- use the builtin ansible template module inside a task/main.yaml file in any of the directories inside the "roles" directory i.e. insido of any created role
+- create a "templates" directory in the same "role" where the template module was used
+- add the template file(s) inside the templates directory
+### templating yaml with yq
+this command uses the mikefarah/yq latest image to grab the value of the "user_name" key and use it for the value of the "ssh_allow_users" key, in this case append it ot the string "test" in the all.yaml file
+
+docker run --rm -v "${PWD}":/workdir mikefarah/yq -i '.user_name as $user | .ssh_allow_users = "test " + $user' all.yaml
+

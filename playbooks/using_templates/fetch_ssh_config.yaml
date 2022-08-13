@@ -1,0 +1,11 @@
+- hosts: all
+  become: true
+  tasks:
+
+  - name: fetch ssh config file
+    tags:
+      - fetch_ssh_config
+    ansible.builtin.fetch:
+      src: "{{ fetch_ssh_config_source }}"
+      dest: "{{ fetch_ssh_config_dest }}"
+      flat: yes

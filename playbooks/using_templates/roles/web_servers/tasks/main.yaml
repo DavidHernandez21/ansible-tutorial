@@ -26,7 +26,7 @@
   tags: apache,debian,httpd
   ansible.builtin.lineinfile:
     path: /etc/apache2/apache2.conf
-    regexp: '^LogLevel notice'
-    line: LogLevel warn
+    regexp: '^LogLevel warn'
+    line: LogLevel notice
   when: ansible_distribution == "Debian"
   notify: restart_apache

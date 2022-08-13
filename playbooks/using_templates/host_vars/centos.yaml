@@ -1,0 +1,6 @@
+apache_package_name: httpd
+apache_service: httpd
+php_package_name: php
+mariadb_package_name: mariadb
+terraform_zip_url: https://releases.hashicorp.com/terraform/1.2.6/terraform_1.2.6_linux_amd64.zip
+fetch_ssh_config_dest: ~/ansible_tutorial/ansible-tutorial/playbooks/using_templates/roles/base/templates/sshd_config_centos.j2
