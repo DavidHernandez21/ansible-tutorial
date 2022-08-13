@@ -1,0 +1,3 @@
+user_name: simone
+user_group: root
+sudoers_file_dest: /etc/sudoers.d/simone

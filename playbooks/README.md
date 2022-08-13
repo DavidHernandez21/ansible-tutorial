@@ -21,7 +21,7 @@ ansible-playbook --ask-become-pass --tags "apache,db" playbooks/use_tags/tags.ya
 - inside the main.yaml file write the task for the specific role
 
 ## using variables (host_vars)
-[doc](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#splitting-out-vars)
+[doc](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#splitting-out-vars) and [this](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence)
 
 - create a "host_vars" inside the playbook directory
 - create as many yaml files as groups defined in the inventory file, tha name of the files should be the same as the groups defined in the inventory file

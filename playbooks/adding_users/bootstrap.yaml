@@ -22,24 +22,30 @@
   become: true
   tasks:
 
-  - name: create simone user
+  - name: create user
     tags:
       - create_user
     user:
-      name: simone
-      groups: root
+      name: "{{ user_name }}"
+      groups: "{{ user_group }}"
 
-  - name: add ssh key for simone
+  - name: add ssh key for user
     tags:
       - ssh_keys
     ansible.posix.authorized_key:
-      user: simone
+      user: "{{ user_name }}"
       key: "{{ lookup('file', '~/.ssh/ansible.pub') }}"
     
-  - name: add sudoers file for simone
-    copy:
+  - name: add sudoers file for user
+    ansible.builtin.copy:
       src: ~/ansible_tutorial/ansible-tutorial/playbooks/adding_users/sudoer_simone
-      dest: /etc/sudoers.d/simone
+      dest: "{{ sudoers_file_dest }}"
       owner: root
       group: root
       mode: 0440
+
+  - name: give root group ssh config file read permission
+    ansible.builtin.file:
+      path: /etc/ssh/sshd_config
+      group: root
+      mode: 0640
