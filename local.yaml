@@ -3,7 +3,7 @@
   connection: local
   become: true
 
-  pre-tasks:
+  pre_tasks:
     - name: update repositories
       tags: always
       ansible.builtin.apt:
