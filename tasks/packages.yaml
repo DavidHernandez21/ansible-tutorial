@@ -5,3 +5,8 @@
       - tmux
       - mc
       - cron
+
+- name: start cron deamon
+  ansible.builtin.service:
+    name: cron
+    state: started
