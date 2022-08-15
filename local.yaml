@@ -10,4 +10,4 @@
         update_cache: yes
       changed_when: false
   tasks:
-    - include: tasks/packages.yaml
+    - include_tasks: tasks/packages.yaml
