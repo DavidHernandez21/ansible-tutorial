@@ -3,7 +3,11 @@
   connection: local
   become: true
 
+  pre-tasks:
+    - name: update repositories
+      tags: always
+      ansible.builtin.apt:
+        update_cache: yes
+      changed_when: false
   tasks:
-  - name: install htop
-    package:
-      name: htop
+    - include: tasks/packages.yaml

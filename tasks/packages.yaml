@@ -1,0 +1,6 @@
+- name: install packages
+  ansible.builtin.apt:
+    name: 
+      - htop
+      - tmux
+      - mc
