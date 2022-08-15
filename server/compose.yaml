@@ -1,0 +1,52 @@
+version: "3.9"
+services:
+  bullseye-ansible-1:
+    image: bullseye-ansible:0.1.4
+    container_name: "bullseye-ansible-1"
+    networks:
+        - ansible
+    ports:
+      - "2200:22"
+      - "8080:80"
+  bullseye-ansible-2:
+    image: bullseye-ansible:0.1.4
+    container_name: "bullseye-ansible-2"
+    networks:
+        - ansible
+    ports:
+      - "2202:22"
+      - "8083:80"
+  bullseye-ansible-3:
+    image: bullseye-ansible:0.1.4
+    container_name: "bullseye-ansible-3"
+    networks:
+        - ansible
+    ports:
+      - "2203:22"
+      - "8084:80"
+
+  bullseye-ansible-4:
+    image: bullseye-ansible:0.1.4
+    container_name: "bullseye-ansible-4"
+    networks:
+        - ansible
+    ports:
+      - "2204:22"
+      - "8085:80"
+
+  centos-ansible:
+    image: centos-ansible:0.2.1
+    container_name: "centos-ansible"
+    networks:
+        - ansible
+    ports:
+      - "2201:22"
+      - "8081:80"
+      - "8082:8080"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - "/tmp/$$(mktemp -d):/run"
+
+networks:
+  ansible:
+    driver: bridge
