@@ -1,0 +1,6 @@
+- name: add ansible-pull cron job
+  ansible.builtin.cron:
+    name: ansible auto-provision
+    user: ansible
+    minute: "*/10"
+    job: /usr/local/bin/ansible-pull -o -C ansible_pull -U https://github.com/DavidHernandez21/ansible-tutorial.git local.yaml > /dev/null 2> /var/log/ansible-pull.log

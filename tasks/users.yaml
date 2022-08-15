@@ -1,0 +1,14 @@
+- name: create user
+  tags:
+    - create_user
+  ansible.builtin.user:
+    name: ansible
+    system: yes
+
+- name: add sudoers file for user
+  ansible.builtin.copy:
+    src: files/sudoers_ansible
+    dest: /etc/sudoers.d/ansible
+    owner: root
+    group: root
+    mode: 0440
